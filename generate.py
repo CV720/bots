@@ -9,33 +9,17 @@ def Create_Robot():
         parent="Link0",
         child="Link1",
         type="revolute",
-        position=[0, 0, 1],
+        position=[0, 0.5, 1],
     )
-    pyrosim.Send_Cube(name="Link1", pos=[0, 0, 0.5], size=[1, 1, 1])
+    pyrosim.Send_Cube(name="Link1", pos=[0, 0.5, 0.5], size=[1, 1, 1])
     pyrosim.Send_Joint(
         name="Link1_Link2",
         parent="Link1",
         child="Link2",
         type="revolute",
-        position=[0, 0, 1],
+        position=[0, 1, 0],
     )
-    pyrosim.Send_Cube(name="Link2", pos=[0, 0, 0.5], size=[1, 1, 1])
-    pyrosim.Send_Joint(
-        name="Link2_Link3",
-        parent="Link2",
-        child="Link3",
-        type="revolute",
-        position=[0, 0.5, 0.5],
-    )
-    pyrosim.Send_Cube(name="Link3", pos=[0, 0.5, 0], size=[1, 1, 1])
-    pyrosim.Send_Joint(
-        name="Link3_Link4",
-        parent="Link3",
-        child="Link4",
-        type="revolute",
-        position=[0, 0.5, 0],
-    )
-    pyrosim.Send_Cube(name="Link4", pos=[0, 0.5, 0], size=[1, 1, 1])
+    pyrosim.Send_Cube(name="Link2", pos=[0, 0.5, -0.5], size=[1, 1, 1])
 
     pyrosim.End()
 
@@ -46,19 +30,6 @@ def Create_World():
     pyrosim.End()
 
 
-# pyrosim.Start_SDF("world.sdf")
-
 if __name__ == "__main__":
     Create_World()
     Create_Robot()
-
-# pyrosim.Send_Cube(name="Box", pos=[0, 0, 1], size=[1, 1, 1])
-# # pyrosim.Send_Cube(name="Box2", pos=[2, 0, 2], size=[1, 1, 1])
-# for i in range(3):
-#     for j in range(3):
-#         for k in range(3):
-#             pyrosim.Send_Cube(
-#                 name="Box3",
-#                 pos=[i, j, k + 2],
-#                 size=[1 * (0.9) ** k, 1 * (0.9) ** k, 1 * (0.9) ** k],
-#             )
