@@ -24,4 +24,5 @@ for _ in range(1000):
     time.sleep(1 / 60)
 np.save("backLegSensorValues", backLegSensorValues)
 np.save("data/FrontLegSensorValues", frontLegSensorValue)
+print("hello")
 p.disconnect()
