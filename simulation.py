@@ -1,7 +1,9 @@
-from world import WORLD
-from robot import ROBOT
-import pybullet as p
 import time
+
+import pybullet as p
+
+from robot import ROBOT
+from world import WORLD
 
 
 class SIMULATION:
@@ -15,10 +17,11 @@ class SIMULATION:
         for _ in range(1_000):
             p.stepSimulation()
             self.robot.Sense(_)
+            self.robot.Think()
             self.robot.Act(_)
             if _ % 100 == 0:
                 print(_)
-            time.sleep(1 / 20)
+            time.sleep(1 / 60)
 
     def __del__(self):
         p.disconnect()

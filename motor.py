@@ -1,7 +1,8 @@
 import numpy as np
+import pybullet as p
+
 import constants as c
 import pyrosim.pyrosim as pyrosim
-import pybullet as p
 
 
 class MOTOR:
