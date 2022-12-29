@@ -5,3 +5,4 @@ Frequency = 15
 PhaseOffset = 0
 
 numberOfGenerations = 10
+populationSize = 10

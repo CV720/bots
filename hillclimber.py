@@ -11,6 +11,7 @@ class HILL_CLIMBER:
     def Evolve(self):
         self.parent.Evaluate("GUI")
         for currentGeneration in range(c.numberOfGenerations):
+            print("")
             print(currentGeneration)
             self.Evolve_For_One_Generation()
 
@@ -38,5 +39,6 @@ class HILL_CLIMBER:
         self.parent.Evaluate("GUI")
 
     def Print(self):
+        print("")
         print("Child " + str(self.child.fitness))
-        print("Paren " + str(self.parent.fitness))
+        print("Parent " + str(self.parent.fitness))
