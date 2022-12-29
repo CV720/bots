@@ -14,9 +14,6 @@ class PARALLEL_HILL_CLIMBER:
         for i in range(c.populationSize):
             self.parents[i] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID += 1
-            # print(self.nextAvailableID)
-
-        # self.parent = SOLUTION()
 
     def Evolve(self):
         self.Evaluate(self.parents)
@@ -54,6 +51,7 @@ class PARALLEL_HILL_CLIMBER:
         min_parent = min(self.parents, key=lambda k: self.parents[k].fitness)
         print(min_parent)
         self.parents[min_parent].Start_Simulation("GUI")
+        self.parents[min_parent].Wait_For_Simulation_To_End()
 
     def Evaluate(self, solutions):
         for soln in solutions:
