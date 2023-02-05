@@ -3,6 +3,7 @@ import os
 
 import constants as c
 from solution import SOLUTION
+import numpy as np
 
 
 class PARALLEL_HILL_CLIMBER:
@@ -52,6 +53,7 @@ class PARALLEL_HILL_CLIMBER:
         print(min_parent)
         self.parents[min_parent].Start_Simulation("GUI")
         self.parents[min_parent].Wait_For_Simulation_To_End()
+        np.save("data/weights", self.parents[min_parent].weights)
 
     def Evaluate(self, solutions):
         for soln in solutions:

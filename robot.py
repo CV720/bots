@@ -2,11 +2,11 @@ import os
 
 import pybullet as p
 
+import constants as c
 import pyrosim.pyrosim as pyrosim
 from motor import MOTOR
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 from sensor import SENSOR
-import constants as c
 
 
 class ROBOT:
@@ -43,10 +43,15 @@ class ROBOT:
         self.nn.Update()
 
     def Get_Fitness(self):
-        stateOfLinkZero = p.getLinkState(self.robotId, 0)
-        positionOfLinkZero = stateOfLinkZero[0]
-        xCoordinateOfLinkZero = positionOfLinkZero[0]
+        # stateOfLinkZero = p.getLinkState(self.robotId, 0)
+        # positionOfLinkZero = stateOfLinkZero[0]
+        # xyCoordinateOfLinkZero = positionOfLinkZero[0]
+
+        basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
+        basePosition = basePositionAndOrientation[0]
+        xPosition = basePosition[0]
+
         f = open("tmp{0}.txt".format(self.id), "w")
-        f.write(str(xCoordinateOfLinkZero))
+        f.write(str(xPosition))
         f.close()
         os.rename("tmp{0}.txt".format(self.id), "fitness{0}.txt".format(self.id))
