@@ -5,7 +5,7 @@ Frequency = 15
 PhaseOffset = 0
 motorJointRange = .2  # Similar to learning rate in gradient descent
 
-numberOfGenerations = 10
+numberOfGenerations = 35
 populationSize = 10
 
 numSensorNeurons = 9

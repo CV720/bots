@@ -49,9 +49,10 @@ class ROBOT:
 
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
         basePosition = basePositionAndOrientation[0]
-        xPosition = basePosition[0]
+        print(basePositionAndOrientation)
+        xyPosition = basePosition[0]**2 + basePosition[1]**2
 
         f = open("tmp{0}.txt".format(self.id), "w")
-        f.write(str(xPosition))
+        f.write(str(xyPosition))
         f.close()
         os.rename("tmp{0}.txt".format(self.id), "fitness{0}.txt".format(self.id))
